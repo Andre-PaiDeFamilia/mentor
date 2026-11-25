@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor de Carreiras IA - OpenRouter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mentor de Carreiras com IA</h1>
+        <p>Projeto prático: Integração OpenRouter, System Prompt e Contagem de Tokens</p>
+    </header>
+
+    <main class="container">
+        <!-- AULA 1 e 2: Configuração Segura da API -->
+        <section class="card">
+            <h2>1. Configuração de Segurança (API Key)</h2>
+            <p class="desc">
+                Para manter seu repositório seguro no GitHub, sua chave não fica salva no código. 
+                Obtenha uma chave gratuita em <a href="https://openrouter.ai/" target="_blank">openrouter.ai</a>.
+            </p>
+            <div class="input-group">
+                <input type="password" id="api-key" placeholder="Cole sua chave sk-or-v1-...">
+                <button onclick="salvarChave()" class="btn-secondary">Salvar na Sessão</button>
+            </div>
+            <small id="status-chave" class="status-msg">Nenhuma chave configurada nesta sessão.</small>
+        </section>
+
+        <!-- AULA 3: System Prompt & Interação -->
+        <section class="card">
+            <h2>2. Consultoria de Carreiras (System Prompt)</h2>
+            <p class="desc">
+                O modelo atua sob regras estritas: sugere graduações reais no Brasil, sem emojis e de forma breve.
+            </p>
+            
+            <details class="prompt-details">
+                <summary>Ver instruções do sistema (System Prompt)</summary>
+                <pre id="system-prompt-view"></pre>
+            </details>
+
+            <div class="input-group">
+                <input type="text" id="user-prompt" placeholder="Quais são as suas afinidades / interesses? (ex: tecnologia e design)">
+                <button onclick="consultarMentor()" id="btn-enviar">Consultar</button>
+            </div>
+
+            <div class="resposta-box">
+                <h3>Resposta do Mentor:</h3>
+                <div id="resposta-texto" class="conteudo-resposta">Aguardando suas afinidades...</div>
+            </div>
+        </section>
+
+        <!-- AULA 4: Contagem de Tokens -->
+        <section class="card">
+            <h2>3. Telemetria e Contagem de Tokens</h2>
+            <p class="desc">
+                Acompanhe o consumo da requisição. Ferramenta extra: 
+                <a href="https://marcelopaludetto.github.io/artefatos/" target="_blank">Calculadora de Tokens</a>.
+            </p>
+            <div class="tokens-grid">
+                <div class="token-item">
+                    <span class="token-label">Tokens de Entrada</span>
+                    <span class="token-valor" id="tok-entrada">0</span>
+                </div>
+                <div class="token-item">
+                    <span class="token-label">Tokens de Saída</span>
+                    <span class="token-valor" id="tok-saida">0</span>
+                </div>
+                <div class="token-item">
+                    <span class="token-label">Tokens de Raciocínio</span>
+                    <span class="token-valor" id="tok-raciocinio">0</span>
+                </div>
+                <div class="token-item destaque">
+                    <span class="token-label">Total de Tokens</span>
+                    <span class="token-valor" id="tok-total">0</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Transcrito de Python (Google Colab) para JavaScript Web • Pronto para GitHub Pages</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
